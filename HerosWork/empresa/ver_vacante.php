@@ -91,7 +91,6 @@
                     echo "<button onclick='window.location.href=\"editar_vacante.php?id=$id_vacante\"'>Editar Vacante</button>";
                     // Agregar el formulario con el botón de solicitud
                     echo "<form action='solicitudes.php' method='post'>";
-                    echo "<input type='hidden' name='id_candidato' value='$candidatoID'>";
                     echo "<input type='hidden' name='id_vacante' value='$id_vacante'>";
                     echo "<button type='submit'>Solicitudes</button>";
                     echo "</form>";
