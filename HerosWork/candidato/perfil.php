@@ -64,63 +64,68 @@
         <h1>Detalles de la Vacante</h1>
     </header>
 
-    <main >
+    <main>
     <?php
-            // Incluir el archivo de conexión
-            include('conexion.php');
+    // Iniciar la sesión
+    session_start();
 
-            // ID del candidato que quieres mostrar (en este caso, ID 1)
-            $candidatoID = 0;
+    // Verificar si la sesión está configurada
+    if (isset($_SESSION['id_candidato'])) {
+        // Obtener el ID del candidato desde la sesión
+        $candidatoID = $_SESSION['id_candidato'];
 
-            // Consulta para obtener datos del candidato específico (sin la contraseña)
-            $consultaCandidato = "SELECT id_candidato, id_escuela, nombre, direccion, edad, discapacidad, habilidades, telefono, sexo, correo FROM Candidato WHERE id_candidato = $candidatoID";
-            $resultadoCandidato = $conexion->query($consultaCandidato);
+        // Incluir el archivo de conexión
+        include('conexion.php');
 
-            // Mostrar los datos en la página
-            if ($resultadoCandidato->num_rows > 0) {
-                while ($filaCandidato = $resultadoCandidato->fetch_assoc()) {
-                    
-                    echo "<h2>Información del Candidato</h2>";
-                    echo "<p><strong>Nombre:</strong> " . $filaCandidato["nombre"] . "</p>";
-                    echo "<p><strong>Dirección:</strong> " . $filaCandidato["direccion"] . "</p>";
-                    echo "<p><strong>Edad:</strong> " . $filaCandidato["edad"] . "</p>";
-                    echo "<p><strong>Discapacidad:</strong> " . $filaCandidato["discapacidad"] . "</p>";
-                    echo "<p><strong>Habilidades:</strong> " . $filaCandidato["habilidades"] . "</p>";
-                    echo "<p><strong>Teléfono:</strong> " . $filaCandidato["telefono"] . "</p>";
-                    echo "<p><strong>Sexo:</strong> " . $filaCandidato["sexo"] . "</p>";
-                    echo "<p><strong>Correo:</strong> " . $filaCandidato["correo"] . "</p>";
+        // Consulta para obtener datos del candidato específico (sin la contraseña)
+        $consultaCandidato = "SELECT id_candidato, id_escuela, nombre, direccion, edad, discapacidad, habilidades, telefono, sexo, correo FROM Candidato WHERE id_candidato = $candidatoID";
+        $resultadoCandidato = $conexion->query($consultaCandidato);
 
-                    // Consulta para obtener el nombre de la escuela
-                    $idEscuela = $filaCandidato["id_escuela"];
-                    $consultaEscuela = "SELECT nombre, direccion, telefono FROM Escuela WHERE id_escuela = $idEscuela";
-                    $resultadoEscuela = $conexion->query($consultaEscuela);
+        // Mostrar los datos en la página
+        if ($resultadoCandidato->num_rows > 0) {
+            while ($filaCandidato = $resultadoCandidato->fetch_assoc()) {
+                echo "<h2>Información del Candidato</h2>";
+                echo "<p><strong>Nombre:</strong> " . $filaCandidato["nombre"] . "</p>";
+                echo "<p><strong>Dirección:</strong> " . $filaCandidato["direccion"] . "</p>";
+                echo "<p><strong>Edad:</strong> " . $filaCandidato["edad"] . "</p>";
+                echo "<p><strong>Discapacidad:</strong> " . $filaCandidato["discapacidad"] . "</p>";
+                echo "<p><strong>Habilidades:</strong> " . $filaCandidato["habilidades"] . "</p>";
+                echo "<p><strong>Teléfono:</strong> " . $filaCandidato["telefono"] . "</p>";
+                echo "<p><strong>Sexo:</strong> " . $filaCandidato["sexo"] . "</p>";
+                echo "<p><strong>Correo:</strong> " . $filaCandidato["correo"] . "</p>";
 
-                    // Mostrar la información de la escuela
-                    if ($resultadoEscuela->num_rows > 0) {
-                        $filaEscuela = $resultadoEscuela->fetch_assoc();
-                        echo "<h2>Escuela Asociada</h2>";
-                        echo "<p><strong>Nombre:</strong> " . $filaEscuela["nombre"] . "</p>";
-                        echo "<p><strong>Dirección:</strong> " . $filaEscuela["direccion"] . "</p>";
-                        echo "<p><strong>Teléfono:</strong> " . $filaEscuela["telefono"] . "</p>";
-                    } else {
-                        echo "<p><strong>Escuela:</strong> No disponible</p>";
-                    }
+                // Consulta para obtener el nombre de la escuela
+                $idEscuela = $filaCandidato["id_escuela"];
+                $consultaEscuela = "SELECT nombre, direccion, telefono FROM Escuela WHERE id_escuela = $idEscuela";
+                $resultadoEscuela = $conexion->query($consultaEscuela);
+
+                // Mostrar la información de la escuela
+                if ($resultadoEscuela->num_rows > 0) {
+                    $filaEscuela = $resultadoEscuela->fetch_assoc();
+                    echo "<h2>Escuela Asociada</h2>";
+                    echo "<p><strong>Nombre:</strong> " . $filaEscuela["nombre"] . "</p>";
+                    echo "<p><strong>Dirección:</strong> " . $filaEscuela["direccion"] . "</p>";
+                    echo "<p><strong>Teléfono:</strong> " . $filaEscuela["telefono"] . "</p>";
+                } else {
+                    echo "<p><strong>Escuela:</strong> No disponible</p>";
                 }
-            } else {
-                echo "No se encontró información del candidato.";
             }
+        } else {
+            echo "No se encontró información del candidato.";
+        }
 
-            // Cerrar la conexión
-            $conexion->close();
-        ?>
+        // Cerrar la conexión
+        $conexion->close();
+    } else {
+        // La sesión no está configurada, redirigir o manejar de acuerdo a tus necesidades
+        header("Location: index.php");
+        exit();
+    }
+    ?>
         <div style="text-align: center; margin-top: 20px;">
-
-        <button style="display: inline-block; vertical-align: middle;" onclick="window.location.href='index.php'">Volver</button>
-
-        <button style="display: inline-block; vertical-align: middle;" onclick="window.location.href='editar.php?id=<?php echo $candidatoID; ?>'">Editar</button>
-
+            <button style="display: inline-block; vertical-align: middle;" onclick="window.location.href='index.php'">Volver</button>
+            <button style="display: inline-block; vertical-align: middle;" onclick="window.location.href='editar.php?id=<?php echo $candidatoID; ?>'">Editar</button>
         </div>
-
     </main>
 </body>
 </html>
