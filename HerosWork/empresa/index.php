@@ -13,7 +13,7 @@
         }
 
         header {
-            background-color: #6fa5b1;
+            background-color: #183146;
             color: white;
             padding: 1em;
             text-align: center;
@@ -27,7 +27,7 @@
         }
 
         footer {
-            background-color: #6fa5b1;
+            background-color: rgba(230,230,230);
             color: white;
             text-align: center;
             padding: 1em;
@@ -114,7 +114,7 @@
 <body>
 <!-- Dentro del header -->
 <header>
-    <h1>Empresa</h1>
+    <h1>HEROESWORK</h1>
     <a href="perfil.php"><button class="profile-button">Perfil</button></a>
 </header>
 
@@ -164,7 +164,7 @@ $conexion->close();
 
     <footer>
         
-        <p>Pie de página</p>
+        <p> &copy;Heroeswork 2023</p>
     </footer>
 </body>
 </html>

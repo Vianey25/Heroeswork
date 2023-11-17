@@ -59,8 +59,8 @@ header{
 }
 
 .logo img{
-    height: 45px;
-    margin-right: 10px;
+    height: 95px;
+    margin-right: 30px;
 }
 
 nav a {
@@ -118,7 +118,9 @@ nav a:hover {
     text-align: center;
     color: white;
 }
-
+#quienSomos .p{
+    color: #6F9EB1;
+}
 
 
 #programas p{

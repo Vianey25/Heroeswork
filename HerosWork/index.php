@@ -11,7 +11,7 @@
 <body>
 <header>
     <div class="logo">
-      <img src="img/circulo.png" alt="">
+      <img src="img/logo2.png" alt="">
       <h2 class="nombre-empresa">HEROESWORK</h2>
 
     </div>

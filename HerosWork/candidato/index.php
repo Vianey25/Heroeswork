@@ -13,7 +13,7 @@
         }
 
         header {
-            background-color: #9b77da;
+            background-color: #183146;
             color: white;
             padding: 1em;
             text-align: center;
@@ -27,7 +27,7 @@
         }
 
         footer {
-            background-color: #9b77da;
+            background-color: background-color: rgba(200,200,200);;
             color: white;
             text-align: center;
             padding: 1em;
@@ -96,7 +96,7 @@
 <body>
 <!-- Dentro del header -->
 <header>
-    <h1>Vacantes</h1>
+    <h1>HEROESWORK</h1>
     <a href="test/test.php" style="color: white; text-decoration: none; font-size: 25px;">Realiza tus test</a>
     <a href="perfil.php" style="color: white; text-decoration: none; font-size: 25px;">Ver Perfil</a>
 </header>
@@ -128,7 +128,7 @@
                 $totalTestsContestados = $filaTestsContestados["total_tests"];
 
                 // Verificar si el candidato ha contestado al menos 4 tests
-                if ($totalTestsContestados == 4) {
+                if ($totalTestsContestados >= 4) {
 
                     // Consulta para obtener datos de la tabla Vacantes
                     $consulta = "SELECT * FROM solicitud WHERE id_candidato = '$candidatoID'";
@@ -212,7 +212,9 @@
     </main>
 
     <footer>
-        <p>Pie de página</p>
-    </footer>
+    <div class="container">
+      <p>&copy; Heroeswork 2023</p>
+    </div>
+  </footer>
 </body>
 </html>
