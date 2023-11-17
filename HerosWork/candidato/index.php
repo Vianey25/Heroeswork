@@ -98,6 +98,7 @@
 <header>
     <h1>Candidato</h1>
     <a href="perfil.php"><button class="profile-button">Perfil</button></a>
+    <a href="test/test.php"><button class="profile-button">Test</button></a>
 </header>
 
 
