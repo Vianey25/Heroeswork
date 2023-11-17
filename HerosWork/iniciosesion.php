@@ -59,10 +59,8 @@
             color: white;
             background-color: #183146;
         }
-<<<<<<< HEAD
         .button:hover{
             background-color:#6FA5B1;
-=======
 
         input[type="submit"]:hover {
             background-color: #4e6b9f;
@@ -85,7 +83,6 @@
 
         button:hover {
             background-color: #2980b9;
->>>>>>> e4080c23a051112ac05cd915c04f129be7b06472
         }
     </style>
 </head>
@@ -100,12 +97,9 @@
         <label for="password">Contraseña:</label>
         <input type="password" id="password" name="password" required>
 
-<<<<<<< HEAD
         <input type="submit" class="button" value="Iniciar Sesión">
-=======
-        <input type="submit" value="Iniciar Sesión">
+       
 
->>>>>>> e4080c23a051112ac05cd915c04f129be7b06472
     </form>
     <br>
     <a href="index.php"><button>Volver a Inicio</button></a>
