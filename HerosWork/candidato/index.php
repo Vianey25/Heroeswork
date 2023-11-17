@@ -13,7 +13,7 @@
         }
 
         header {
-            background-color: #333;
+            background-color: #9b77da;
             color: white;
             padding: 1em;
             text-align: center;
@@ -27,7 +27,7 @@
         }
 
         footer {
-            background-color: #333;
+            background-color: #9b77da;
             color: white;
             text-align: center;
             padding: 1em;
@@ -37,7 +37,7 @@
         }
 
         .profile-button {
-            background-color: #4CAF50;
+            background-color: #6fa5b1;
             color: white;
             padding: 10px 15px;
             border: none;
@@ -78,7 +78,7 @@
         }
 
         button {
-            background-color: #4caf50;
+            background-color: #6fa5b1;
             color: white;
             padding: 10px;
             border: none;
@@ -89,7 +89,7 @@
         }
 
         button:hover {
-            background-color: #45a049;
+            background-color: #4e6b9f;
         }
     </style>
 </head>
