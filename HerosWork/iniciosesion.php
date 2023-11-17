@@ -98,11 +98,10 @@
         <input type="password" id="password" name="password" required>
 
         <input type="submit" class="button" value="Iniciar Sesión">
-       
+        
 
     </form>
-    <br>
-    <a href="index.php"><button>Volver a Inicio</button></a>
+    
     </div>
   
 

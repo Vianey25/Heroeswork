@@ -13,16 +13,16 @@
         }
 
         header {
-            background-color: #9b77da;
+            background-color: #183146;
             padding: 20px;
             color: #ffffff; /* Color del texto en el encabezado */
             text-align: center;
         }
 
         footer {
-            background-color: #9b77da;
+            background-color: rgba(230,230,230);
             padding: 10px;
-            color: #ffffff; /* Color del texto en el pie de página */
+            color: rgb(100,100,100); /* Color del texto en el pie de página */
             text-align: center;
             position: absolute;
             bottom: 0;
@@ -56,19 +56,18 @@
             font-weight: bold;
         }
 
-        button {
-            background-color: #9b77da;
-            color: #ffffff;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            margin-top: 20px;
+        button{
+        font-size: 1.2em;
+        font-weight: bold;
+        border-radius: 10px;
+        padding: 10px 20px;
+        box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+        color: white;
+        background-color: #183146;
+        margin-top: 20px;
         }
-
-        button:hover {
-            background-color: #7c5d9a; /* Cambia el color al pasar el ratón sobre el botón */
+        button:hover{
+            background-color:#6FA5B1;
         }
     </style>
 </head>

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/index.css">
+    <link rel="manifest" href="manifest.json">
     <title>Heroeswork</title>
     
 </head>
@@ -11,7 +12,7 @@
 <header>
     <div class="logo">
       <img src="img/circulo.png" alt="">
-      <h2 class="nombre-empresa">Heroeswork</h2>
+      <h2 class="nombre-empresa">HEROESWORK</h2>
 
     </div>
     <nav>
@@ -31,10 +32,8 @@
     <div class="container">
       <div class="img-container" ><img src="./img/logo.png" alt="" class="img"></div>
       <div class="texto">
-        <h2>Quienes somos?</h2>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam doloribus quis aspernatur dolore
-          nisi ad amet dolorem, ex dignissimos eaque debitis facilis sed officiis molestias
-          accusantium saepe vero corrupti. Facilis.</p>
+        <h2>¿Quienes somos?</h2>
+        <p>Somos una asociación civil con el objetivo de  mejorar las oportunidades laborales para  personas con dificultades analiticas, así como también contribuir al crecimiento económico a través de la diversidad y el talento único que aportan.</p>
       </div>
     </div>
     </section>
@@ -44,23 +43,18 @@
       <div class="programas_cartas">
         <div class="carta">
           <h3>Registrate como empresa inclusiva</h3>
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-            Molestias ut quasi dolorem autem reprehenderit, repellendus ipsam, dicta eaque nihil dolores earum 
-            corporis hic esse, est similique ea soluta consectetur non?</p>
+          <p>Si eres una empresa que fomenta un entorno de trabajo donde todas las personas, se sienten valoradas, 
+            respetadas y tienen igualdad de oportunidades para crecer y contribuir al éxito de la organización REGÍSTRATE YA</p>
            
         </div>
         <div class="carta">
           <h3>Consigue un trabajo</h3>
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-            Molestias ut quasi dolorem autem reprehenderit, repellendus ipsam, dicta eaque nihil dolores earum 
-            corporis hic esse, est similique ea soluta consectetur non?</p>
+          <p>Si eres una persona con dificultades analíticas o conoces a alguna que quiera conseguir un trabajo con un ambiente laboral inclusivo.</p>
            
         </div>
         <div class="carta">
           <h3>Ambiente laboral más inclusivo y diverso</h3>
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-            Molestias ut quasi dolorem autem reprehenderit, repellendus ipsam, dicta eaque nihil dolores earum 
-            corporis hic esse, est similique ea soluta consectetur non?</p>
+          <p>La iniciativa tiene como propósito no solo mejorar las oportunidades laborales para este grupo específico de personas, sino también contribuir al crecimiento económico a través de la diversidad y el talento único que aportan.</p>
             
         </div>
       </div>
@@ -69,6 +63,7 @@
   <section id="caracteristicas">
     <div class="container">
       <ul>
+        <li>CONTACTO</li>
         <li> heroeswork@gmail.com</li>
         <li>7751580685</li>
         <li>Facebook: heroeswork</li>
