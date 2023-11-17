@@ -25,9 +25,8 @@
         main {
             padding: 20px;
         }
-
         footer {
-            background-color: #9b77da;
+            background-color: #6fa5b1;
             color: white;
             text-align: center;
             padding: 1em;
@@ -104,45 +103,91 @@
     <main>
         <h2>Vacantes Disponibles</h2>
 
-<?php
+        <?php
+// Verificar si la sesión está iniciada
+session_start();
 // Incluir el archivo de conexión
 include('conexion.php');
-
-// Verificar si hay una sesión activa
-session_start();
-
-// Verificar si el usuario está autenticado como empresa
+// Verificar si el ID de la empresa está en la sesión
 if (isset($_SESSION['id_empresa'])) {
     // Obtener el ID de la empresa desde la sesión
     $id_empresa = $_SESSION['id_empresa'];
 
-    // Consulta para obtener datos de la tabla Vacantes filtrando por la empresa
-    $consulta = "SELECT * FROM Vacantes WHERE id_empresa = $id_empresa";
-    $resultado = $conexion->query($consulta);
+    // Verificar si se ha enviado el formulario
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        // Conectar a la base de datos (reemplaza los valores de conexión según tu configuración)
 
-    // Mostrar los datos en la página
-    if ($resultado->num_rows > 0) {
-        echo "<ul>";
-        while ($fila = $resultado->fetch_assoc()) {
-            echo "<li>";
-            echo "<h3>" . $fila["titulo"] . "</h3>";
-            echo "<p>" . $fila["descripcion"] . "</p>";
-            echo "<a href='ver_vacante.php?id=" . $fila["id_vacante"] . "'><button>Ver más</button></a>";
-            echo "</li>";
+        // Verificar la conexión
+        if ($conexion->connect_error) {
+            die("Error de conexión a la base de datos: " . $conexion->connect_error);
         }
-        echo "</ul>";
-    } else {
-        echo "No hay vacantes disponibles para esta empresa.";
-    }
-} else {
-    echo "No estás autenticado como empresa.";
-}
 
-// Cerrar la conexión
-$conexion->close();
+        // Obtener los datos del formulario
+        $titulo = $_POST['titulo'];
+        $descripcion = $_POST['descripcion'];
+        $tiempo = $_POST['tiempo'];
+        $sueldo = $_POST['sueldo'];
+        $requisitos = $_POST['requisitos'];
+        $responsabilidades = $_POST['responsabilidades'];
+
+        // Preparar la consulta SQL para insertar una nueva vacante
+        $sql = "INSERT INTO Vacantes (id_empresa, titulo, descripcion, tiempo, sueldo, requisitos, responsabilidades) VALUES (?, ?, ?, ?, ?, ?, ?)";
+
+        // Preparar la declaración
+        $stmt = $conexion->prepare($sql);
+
+        // Vincular los parámetros
+        $stmt->bind_param("isssdss", $id_empresa, $titulo, $descripcion, $tiempo, $sueldo, $requisitos, $responsabilidades);
+
+        // Ejecutar la declaración
+        if ($stmt->execute()) {
+            echo "La vacante se ha guardado correctamente.";
+        } else {
+            echo "Error al guardar la vacante: " . $stmt->error;
+        }
+
+        // Cerrar la conexión
+        $stmt->close();
+        $conexion->close();
+    }
+}
 ?>
 
-    </main>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario de Vacantes</title>
+</head>
+<body>
+
+<h2>Crear Nueva Vacante</h2>
+
+<form method="post" action="">
+    <label for="titulo">Título:</label>
+    <input type="text" name="titulo" required>
+
+    <label for="descripcion">Descripción:</label>
+    <textarea name="descripcion" required></textarea>
+
+    <label for="tiempo">Tiempo:</label>
+    <input type="text" name="tiempo">
+
+    <label for="sueldo">Sueldo:</label>
+    <input type="number" name="sueldo" step="0.01">
+
+    <label for="requisitos">Requisitos:</label>
+    <textarea name="requisitos"></textarea>
+
+    <label for="responsabilidades">Responsabilidades:</label>
+    <textarea name="responsabilidades"></textarea>
+
+    <button type="submit">Guardar Vacante</button>
+</form>
+<a href="index.php"><button type="button">Volver</button></a>
+</body>
+</html>
+
 
     <footer>
         <p>Pie de página</p>
