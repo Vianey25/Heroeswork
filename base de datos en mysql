@@ -1,6 +1,10 @@
+CREATE DATABASE Heroeswork;
+
+USE Heroeswork;
+
 -- Crear la tabla Empresa
 CREATE TABLE Empresa (
-    id_empresa INT PRIMARY KEY,
+    id_empresa INT PRIMARY KEY AUTO_INCREMENT,
     nombre VARCHAR(255) NOT NULL,
     direccion VARCHAR(255),
     telefono VARCHAR(15),
@@ -11,7 +15,7 @@ CREATE TABLE Empresa (
 
 -- Crear la tabla Escuela
 CREATE TABLE Escuela (
-    id_escuela INT PRIMARY KEY,
+    id_escuela INT PRIMARY KEY AUTO_INCREMENT,
     nombre VARCHAR(255) NOT NULL,
     direccion VARCHAR(255),
     telefono VARCHAR(15)
@@ -19,7 +23,7 @@ CREATE TABLE Escuela (
 
 -- Crear la tabla Candidato
 CREATE TABLE Candidato (
-    id_candidato INT PRIMARY KEY,
+    id_candidato INT PRIMARY KEY AUTO_INCREMENT,
     id_escuela INT,
     nombre VARCHAR(255) NOT NULL,
     direccion VARCHAR(255),
@@ -33,7 +37,7 @@ CREATE TABLE Candidato (
 
 -- Crear la tabla Vacantes
 CREATE TABLE Vacantes (
-    id_vacante INT PRIMARY KEY,
+    id_vacante INT PRIMARY KEY AUTO_INCREMENT,
     id_empresa INT,
     titulo VARCHAR(255) NOT NULL,
     descripcion TEXT,
@@ -45,7 +49,7 @@ CREATE TABLE Vacantes (
 
 -- Crear la tabla Solicitud
 CREATE TABLE Solicitud (
-    id_solicitud INT PRIMARY KEY,
+    id_solicitud INT PRIMARY KEY AUTO_INCREMENT,
     id_vacante INT,
     id_candidato INT,
     estado VARCHAR(50),
@@ -54,7 +58,7 @@ CREATE TABLE Solicitud (
 
 -- Crear la tabla Test
 CREATE TABLE Test (
-    id_test INT PRIMARY KEY,
+    id_test INT PRIMARY KEY AUTO_INCREMENT,
     id_solicitud INT,
     id_candidato INT,
     resultados TEXT
