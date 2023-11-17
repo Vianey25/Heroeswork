@@ -15,7 +15,7 @@
 
     </div>
     <nav>
-      <a href="" class="nav-link">Iniciar sesión</a>
+      <a href="iniciosesion.php" class="nav-link">Iniciar sesión</a>
       <a href="" class="nav-link">Regristrarse</a>
       <a href="#quienSomos" class="nav-link">Información</a>
     </nav>
