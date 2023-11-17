@@ -97,7 +97,25 @@
         <div style="text-align: center; margin-top: 20px;">
             <button style="display: inline-block; vertical-align: middle;" onclick="window.location.href='index.php'">Volver</button>
             <button style="display: inline-block; vertical-align: middle;" onclick="window.location.href='editar.php?id=<?php echo $id_escuela_usuario; ?>'">Editar</button>
+            <button style="display: inline-block; vertical-align: middle;" onclick="cerrarSesion()">Cerrar Sesión</button>
         </div>
+        
+
+<!-- Agrega este script JavaScript para manejar el cierre de sesión -->
+<script>
+    function cerrarSesion() {
+        // Realiza una solicitud al servidor para cerrar la sesión
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "cerrar_sesion.php", true);
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                // Redirige al index después de cerrar la sesión
+                window.location.href = 'index.php';
+            }
+        };
+        xhr.send();
+    }
+</script>
     </main>
 </body>
 </html>

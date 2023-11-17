@@ -91,6 +91,22 @@
         button:hover {
             background-color: #4e6b9f;
         }
+        .floating-button {
+            position: absolute;
+            bottom: 100px;
+            right: 60px;
+            background-color: #4e6b9f;
+            color: white;
+            padding: 30px;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .floating-button:hover {
+            background-color: #9b77da;
+        }
     </style>
 </head>
 <body>
@@ -136,7 +152,7 @@
         // Cerrar la conexión
         $conexion->close();
     ?>
-
+<a href="estudiantes.php" class="floating-button">&#43;</a>
     </main>
 
     <footer>

@@ -161,7 +161,7 @@ $conexion->close();
 ?>
 <a href="vacantes.php" class="floating-button">&#43;</a>
     </main>
-<a href="vacantes.php" class="floating-button">&#43;</a>
+
     <footer>
         
         <p>Pie de página</p>

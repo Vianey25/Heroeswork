@@ -36,7 +36,7 @@
         }
 
         .profile-button {
-            background-color: #6fa5b1;
+            background-color: #4e6b9f;
             color: white;
             padding: 10px 15px;
             border: none;
@@ -101,7 +101,6 @@
 
 
     <main>
-        <h2>Vacantes Disponibles</h2>
 
         <?php
 // Verificar si la sesión está iniciada
