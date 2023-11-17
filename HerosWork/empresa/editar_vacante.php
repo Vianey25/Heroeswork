@@ -57,6 +57,23 @@
         button:hover {
             background-color: #9b77da;
         }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
     </style>
 </head>
 <body>
@@ -81,20 +98,27 @@
                 if ($resultado->num_rows > 0) {
                     $vacante = $resultado->fetch_assoc();
                     echo "<h2>" . $vacante["titulo"] . "</h2>";
-                    echo "<p><strong>Descripción:</strong> " . $vacante["descripcion"] . "</p>";
-                    echo "<p><strong>Tiempo:</strong> " . $vacante["tiempo"] . "</p>";
-                    echo "<p><strong>Sueldo:</strong> $" . $vacante["sueldo"] . "</p>";
-                    echo "<p><strong>Requisitos:</strong> " . $vacante["requisitos"] . "</p>";
-                    echo "<p><strong>Responsabilidades:</strong> " . $vacante["responsabilidades"] . "</p>";
+                    echo "<form action='actualizar_vacante.php' method='post'>";
+                    echo "<input type='hidden' name='id_vacante' value='$id_vacante'>";
+                    echo "<label for='titulo'>Título:</label>";
+                    echo "<input type='text' name='titulo' value='" . $vacante["titulo"] . "'><br>";
+                    echo "<label for='descripcion'>Descripción:</label>";
+                    echo "<textarea name='descripcion'>" . $vacante["descripcion"] . "</textarea><br>";
+                    echo "<label for='tiempo'>Tiempo:</label>";
+                    echo "<input type='text' name='tiempo' value='" . $vacante["tiempo"] . "'><br>";
+                    echo "<label for='sueldo'>Sueldo:</label>";
+                    echo "<input type='text' name='sueldo' value='" . $vacante["sueldo"] . "'><br>";
+                    echo "<label for='requisitos'>Requisitos:</label>";
+                    echo "<textarea name='requisitos'>" . $vacante["requisitos"] . "</textarea><br>";
+                    echo "<label for='responsabilidades'>Responsabilidades:</label>";
+                    echo "<textarea name='responsabilidades'>" . $vacante["responsabilidades"] . "</textarea><br>";
+                    echo "<button type='submit'>Actualizar Vacante</button>";
                     echo "<button onclick='window.location.href=\"index.php\"'>Volver</button>";
-                    echo "<button onclick='eliminarVacante($id_vacante)'>Eliminar Vacante</button>";
-                    echo "<button onclick='window.location.href=\"editar_vacante.php?id=$id_vacante\"'>Editar Vacante</button>";
+                    echo "</form>";
 
                 } else {
                     echo "<p>No se encontró la vacante.</p>";
                     echo "<button onclick='window.history.back()'>Volver</button>";
-                    
-
                 }
             } else {
                 echo "<p>No se proporcionó un ID de vacante válido.</p>";
@@ -105,16 +129,16 @@
             $conexion->close();
         ?>
     </main>
-    <script>
-    function eliminarVacante(id) {
-        var confirmacion = confirm("¿Estás seguro de que deseas eliminar esta vacante?");
 
-        if (confirmacion) {
-            // Redirigir a un script de eliminación (por ejemplo, eliminar_vacante.php) con el ID de la vacante
-            window.location.href = 'eliminar_vacante.php?id=' + id;
+    <script>
+        function eliminarVacante(id) {
+            var confirmacion = confirm("¿Estás seguro de que deseas eliminar esta vacante?");
+            if (confirmacion) {
+                // Redirigir a un script de eliminación (por ejemplo, eliminar_vacante.php) con el ID de la vacante
+                window.location.href = 'eliminar_vacante.php?id=' + id;
+            }
         }
-    }
-</script>
+    </script>
 
 </body>
 </html>
