@@ -1,5 +1,5 @@
                     <div class="txt">¿Eres un trabajador?</div>
-                    <p class="registro_p">Presiona <a href="empresa/registro_empresa.php" class="registro_a">aquí</a></p>
+                    <p class="registro_p">Presiona <a href="empresa/formulario_registro.php" class="registro_a">aquí</a></p>
                 </div>
                 
                 <div class="txt_container">
