@@ -13,18 +13,26 @@
         }
 
         header {
-            background-color: #6fa5b1   ;
+            background-color: #35355E;
             color: white;
             padding: 1em;
             text-align: center;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            z-index: 1000;
         }
 
         main {
             padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
         }
+
         footer {
             background-color: #6fa5b1;
             color: white;
@@ -42,38 +50,29 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            text-decoration: none;
         }
 
         h2 {
             color: #333;
         }
 
-        ul {
-            list-style-type: none;
-            padding: 0;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
+        form {
+            margin-top: 20px;
         }
 
-        li {
-            width: calc(33.33% - 20px);
-            margin-bottom: 20px;
-            border: 1px solid #ddd;
-            padding: 10px;
-            background-color: #fff;
-            border-radius: 5px;
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 10px;
             box-sizing: border-box;
-        }
-
-        h3 {
-            font-size: 18px;
-            margin-bottom: 8px;
-        }
-
-        p {
-            font-size: 14px;
-            color: #555;
         }
 
         button {
@@ -202,8 +201,6 @@
     </main>
 
 
-    <footer>
-        <p>Pie de página</p>
-    </footer>
+   
 </body>
 </html>
