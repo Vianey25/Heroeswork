@@ -47,6 +47,7 @@ header{
     justify-content: space-between;
     align-items: center;
     padding: 1px;
+    color: white;
     
     
 }
@@ -130,7 +131,7 @@ nav a:hover {
         rgba(0,0,0,0.5),
         rgba(0,0,0,0.5)
     ),
-    url(img/anatomia.jpg);
+    url(../img/empresa.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -141,7 +142,7 @@ nav a:hover {
         rgba(0,0,0,0.5),
         rgba(0,0,0,0.5)
     ),
-    url(img/entrenamient.jpg);
+    url(../img/trabajo.jpg);
     background-repeat: no-repeat;
     background-size: cover;
    
@@ -152,7 +153,7 @@ nav a:hover {
         rgba(0,0,0,0.5),
         rgba(0,0,0,0.5)
     ),
-    url(img/alimentacion.jpg);
+    url(../img/inclusivo.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
