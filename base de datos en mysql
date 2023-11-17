@@ -63,5 +63,8 @@ CREATE TABLE Solicitud (
 CREATE TABLE Test (
     id_test INT PRIMARY KEY AUTO_INCREMENT,
     id_candidato INT,
-    resultados TEXT
+    resultados TEXT,
+    test_colores INT,
+    test_formas INT,
+    test_numeros INT
 );
