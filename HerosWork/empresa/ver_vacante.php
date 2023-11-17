@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editar Información de la Empresa</title>
+    <title>Detalles de la Vacante</title>
     <style>
         body {
             margin: 0;
@@ -13,7 +13,7 @@
         }
 
         header {
-            background-color: #6fa5b1;
+            background-color: #9b77da;
             color: white;
             padding: 1em;
             text-align: center;
@@ -29,37 +29,39 @@
             margin-top: 20px;
         }
 
-        label {
-            display: block;
-            margin-bottom: 5px;
+        h2 {
+            color: #333;
         }
 
-        input {
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 10px;
-            box-sizing: border-box;
+        p {
+            font-size: 14px;
+            color: #555;
+        }
+
+        hr {
+            border: 1px solid #ddd;
+            margin: 20px 0;
         }
 
         button {
-            background-color: #4e6b9f;
+            background-color: #9b77da;
             color: white;
-            padding: 12px;
+            padding: 10px;
             border: none;
             cursor: pointer;
-            border-radius: 5px;
+            border-radius: 3px;
             display: block;
             margin-top: 10px;
         }
 
         button:hover {
-            background-color: #6fa5b1;
+            background-color: #4e6b9f;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Editar Información de la Empresa</h1>
+        <h1>Detalles de la Vacante</h1>
     </header>
 
     <main>
@@ -67,46 +69,31 @@
             // Incluir el archivo de conexión
             include('conexion.php');
 
-            // Obtener el ID de la empresa de la URL
-            $empresaID = $_GET['id'];
+            // Verificar si se proporciona un ID de vacante
+            if (isset($_GET['id']) && is_numeric($_GET['id'])) {
+                $id_vacante = $_GET['id'];
 
-            // Consulta para obtener datos de la empresa específica (sin la contraseña)
-            $consultaEmpresa = "SELECT id_empresa, nombre, direccion, telefono, correo_electronico, descripcion, RFC FROM Empresa WHERE id_empresa = $empresaID";
-            $resultadoEmpresa = $conexion->query($consultaEmpresa);
+                // Consulta para obtener datos de la vacante específica
+                $consulta = "SELECT * FROM Vacantes WHERE id_vacante = $id_vacante";
+                $resultado = $conexion->query($consulta);
 
-            // Mostrar el formulario para la edición de la información
-            if ($resultadoEmpresa->num_rows > 0) {
-                $filaEmpresa = $resultadoEmpresa->fetch_assoc();
-        ?>
-                <form action="guardar_edicion.php" method="post">
-                    <label for="nombre">Nombre:</label>
-                    <input type="text" name="nombre" value="<?php echo $filaEmpresa['nombre']; ?>">
-
-                    <label for="direccion">Dirección:</label>
-                    <input type="text" name="direccion" value="<?php echo $filaEmpresa['direccion']; ?>">
-
-                    <label for="telefono">Teléfono:</label>
-                    <input type="text" name="telefono" value="<?php echo $filaEmpresa['telefono']; ?>">
-
-                    <label for="correo_electronico">Correo Electrónico:</label>
-                    <input type="text" name="correo_electronico" value="<?php echo $filaEmpresa['correo_electronico']; ?>">
-
-                    <label for="descripcion">Descripción:</label>
-                    <input type="text" name="descripcion" value="<?php echo $filaEmpresa['descripcion']; ?>">
-
-                    <label for="RFC">RFC:</label>
-                    <input type="text" name="RFC" value="<?php echo $filaEmpresa['RFC']; ?>">
-
-                    <input type="hidden" name="id_empresa" value="<?php echo $empresaID; ?>">
-
-                    <div style="text-align: center; margin-top: 20px;">
-                        <button type="submit" style="display: inline-block;">Guardar</button>
-                        <button onclick="window.location.href='perfil.php?id=<?php echo $empresaID; ?>'" style="display: inline-block;">Cancelar</button>
-                    </div>
-                </form>
-        <?php
+                // Mostrar los detalles de la vacante
+                if ($resultado->num_rows > 0) {
+                    $vacante = $resultado->fetch_assoc();
+                    echo "<h2>" . $vacante["titulo"] . "</h2>";
+                    echo "<p><strong>Descripción:</strong> " . $vacante["descripcion"] . "</p>";
+                    echo "<p><strong>Tiempo:</strong> " . $vacante["tiempo"] . "</p>";
+                    echo "<p><strong>Sueldo:</strong> $" . $vacante["sueldo"] . "</p>";
+                    echo "<p><strong>Requisitos:</strong> " . $vacante["requisitos"] . "</p>";
+                    echo "<p><strong>Responsabilidades:</strong> " . $vacante["responsabilidades"] . "</p>";
+                    echo "<button onclick='window.history.back()'>Volver</button>";
+                } else {
+                    echo "<p>No se encontró la vacante.</p>";
+                    echo "<button onclick='window.history.back()'>Volver</button>";
+                }
             } else {
-                echo "No se encontró información de la empresa.";
+                echo "<p>No se proporcionó un ID de vacante válido.</p>";
+                echo "<button onclick='window.history.back()'>Volver</button>";
             }
 
             // Cerrar la conexión
