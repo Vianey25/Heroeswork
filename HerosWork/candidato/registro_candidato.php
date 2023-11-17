@@ -73,6 +73,7 @@
 
     <button type="submit">Registrar Candidato</button>
 </form>
+<a href="../iniciosesion.php"><button>Volver a Inicio</button></a>
 
 <script>
     function mostrarOtro() {

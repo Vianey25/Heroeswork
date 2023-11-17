@@ -38,7 +38,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sql = "INSERT INTO Empresa (nombre, direccion, telefono, correo_electronico, descripcion, RFC, contraseña) VALUES ('$nombre', '$direccion', '$telefono', '$correo', '$descripcion', '$RFC', '$contrasena')";
 
     if ($conexion->query($sql) === TRUE) {
-        echo "Registro exitoso";
+        header("Location: ../iniciosesion.php");
+        exit(); 
     } else {
         echo "Error al registrar: " . $conexion->error;
     }
@@ -72,6 +73,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <input type="submit" value="Registrar">
 </form>
+<br>
+<a href="../iniciosesion.php"><button>Volver a Inicio</button></a>
 
 </body>
 </html>

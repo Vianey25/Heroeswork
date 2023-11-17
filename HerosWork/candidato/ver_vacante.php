@@ -13,7 +13,7 @@
         }
 
         header {
-            background-color: #9b77da;
+            background-color: #333;
             color: white;
             padding: 1em;
             text-align: center;
@@ -44,7 +44,7 @@
         }
 
         button {
-            background-color: #6fa5b1;
+            background-color: #4caf50;
             color: white;
             padding: 10px;
             border: none;
@@ -55,7 +55,7 @@
         }
 
         button:hover {
-            background-color: #4e6b9f;
+            background-color: #45a049;
         }
     </style>
 </head>
@@ -65,43 +65,59 @@
     </header>
 
     <main>
-        <?php
-            // Incluir el archivo de conexión
-            include('conexion.php');
+    <?php
+        // Iniciar la sesión
+        session_start();
 
-            // Verificar si se proporciona un ID de vacante
-            if (isset($_GET['id']) && is_numeric($_GET['id'])) {
-                $id_vacante = $_GET['id'];
+        // Verificar si la sesión está configurada
+        if (isset($_SESSION['id_candidato'])) {
+            // Obtener el ID del candidato desde la sesión
+            $candidatoID = $_SESSION['id_candidato'];
+        }
 
-                // Consulta para obtener datos de la vacante específica
-                $consulta = "SELECT * FROM Vacantes WHERE id_vacante = $id_vacante";
-                $resultado = $conexion->query($consulta);
+        // Incluir el archivo de conexión
+        include('conexion.php');
 
-                // Mostrar los detalles de la vacante
-                if ($resultado->num_rows > 0) {
-                    $vacante = $resultado->fetch_assoc();
-                    echo "<h2>" . $vacante["titulo"] . "</h2>";
-                    echo "<p><strong>Descripción:</strong> " . $vacante["descripcion"] . "</p>";
-                    echo "<p><strong>Tiempo:</strong> " . $vacante["tiempo"] . "</p>";
-                    echo "<p><strong>Sueldo:</strong> $" . $vacante["sueldo"] . "</p>";
-                    echo "<p><strong>Requisitos:</strong> " . $vacante["requisitos"] . "</p>";
-                    echo "<p><strong>Responsabilidades:</strong> " . $vacante["responsabilidades"] . "</p>";
-                    echo "<button onclick='window.history.back()'>Volver</button>";
-                } else {
-                    echo "<p>No se encontró la vacante.</p>";
-                    echo "<button onclick='window.history.back()'>Volver</button>";
-                }
+        // Verificar si se proporciona un ID de vacante
+        if (isset($_GET['id']) && is_numeric($_GET['id'])) {
+            $id_vacante = $_GET['id'];
+
+            // Consulta para obtener datos de la vacante específica
+            $consulta = "SELECT * FROM Vacantes WHERE id_vacante = $id_vacante";
+            $resultado = $conexion->query($consulta);
+
+            // Mostrar los detalles de la vacante
+            if ($resultado->num_rows > 0) {
+                $vacante = $resultado->fetch_assoc();
+                echo "<h2>" . $vacante["titulo"] . "</h2>";
+                echo "<p><strong>Descripción:</strong> " . $vacante["descripcion"] . "</p>";
+                echo "<p><strong>Tiempo:</strong> " . $vacante["tiempo"] . "</p>";
+                echo "<p><strong>Sueldo:</strong> $" . $vacante["sueldo"] . "</p>";
+                echo "<p><strong>Requisitos:</strong> " . $vacante["requisitos"] . "</p>";
+                echo "<p><strong>Responsabilidades:</strong> " . $vacante["responsabilidades"] . "</p>";
+
+                // Agregar el formulario con el botón de solicitud
+                echo "<form action='solicitud.php' method='post'>";
+                echo "<input type='hidden' name='id_candidato' value='$candidatoID'>";
+                echo "<input type='hidden' name='id_vacante' value='$id_vacante'>";
+                echo "<button type='submit'>Solicitar</button>";
+                echo "</form>";
+
+                echo "<button onclick='window.history.back()'>Volver</button>";
+
             } else {
-                echo "<p>No se proporcionó un ID de vacante válido.</p>";
+                echo "<p>No se encontró la vacante.</p>";
                 echo "<button onclick='window.history.back()'>Volver</button>";
             }
-            
-            // Cerrar la conexión
-            $conexion->close();
+        } else {
+            echo "<p>No se proporcionó un ID de vacante válido.</p>";
+            echo "<button onclick='window.history.back()'>Volver</button>";
+        }
+
+        // Cerrar la conexión
+        $conexion->close();
         ?>
-        <form action="procesar_solicitud.php" method="post">
-            <button>Solicitar </button>
-        </form>
+
     </main>
 </body>
 </html>
