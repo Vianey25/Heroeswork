@@ -62,7 +62,6 @@ CREATE TABLE Solicitud (
 CREATE TABLE test (
     id_test INT PRIMARY KEY,
     id_candidato INT NULL,
-    estado INT,
     resultado VARCHAR(30),
     tipo_test VARCHAR(30)
 );
