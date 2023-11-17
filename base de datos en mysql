@@ -10,7 +10,8 @@ CREATE TABLE Empresa (
     telefono VARCHAR(15),
     correo_electronico VARCHAR(255),
     descripcion TEXT,
-    RFC VARCHAR(20)
+    RFC VARCHAR(20),
+    contraseña VARCHAR(50)
 );
 
 -- Crear la tabla Escuela
@@ -32,7 +33,8 @@ CREATE TABLE Candidato (
     habilidades TEXT,
     telefono VARCHAR(15),
     sexo VARCHAR(10),
-    correo VARCHAR(255)
+    correo VARCHAR(255),
+    contraseña VARCHAR(50)
 );
 
 -- Crear la tabla Vacantes
