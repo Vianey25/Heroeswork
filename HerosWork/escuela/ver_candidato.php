@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detalles de la Vacante</title>
+    <title>Detalles de los alumnos</title>
     <style>
         body {
             margin: 0;
@@ -13,7 +13,7 @@
         }
 
         header {
-            background-color: #9b77da;
+            background-color: #35355E;
             color: white;
             padding: 1em;
             text-align: center;
@@ -61,47 +61,49 @@
 </head>
 <body>
     <header>
-        <h1>Detalles de la Vacante</h1>
+        <h1>Detalles de la Candidato</h1>
     </header>
 
     <main>
-        <?php
+    <?php
             // Incluir el archivo de conexión
             include('conexion.php');
 
-            // Verificar si se proporciona un ID de vacante
+            // Verificar si se proporciona un ID de candidato
             if (isset($_GET['id']) && is_numeric($_GET['id'])) {
-                $id_vacante = $_GET['id'];
+                $id_candidato = $_GET['id'];
 
-                // Consulta para obtener datos de la vacante específica
-                $consulta = "SELECT * FROM Vacantes WHERE id_vacante = $id_vacante";
-                $resultado = $conexion->query($consulta);
+                // Consulta para obtener datos del candidato específico
+                $consultaCandidato = "SELECT * FROM Candidato WHERE id_candidato = $id_candidato";
+                $resultadoCandidato = $conexion->query($consultaCandidato);
 
-                // Mostrar los detalles de la vacante
-                if ($resultado->num_rows > 0) {
-                    $vacante = $resultado->fetch_assoc();
-                    echo "<h2>" . $vacante["titulo"] . "</h2>";
-                    echo "<p><strong>Descripción:</strong> " . $vacante["descripcion"] . "</p>";
-                    echo "<p><strong>Tiempo:</strong> " . $vacante["tiempo"] . "</p>";
-                    echo "<p><strong>Sueldo:</strong> $" . $vacante["sueldo"] . "</p>";
-                    echo "<p><strong>Requisitos:</strong> " . $vacante["requisitos"] . "</p>";
-                    echo "<p><strong>Responsabilidades:</strong> " . $vacante["responsabilidades"] . "</p>";
+                // Mostrar los detalles del candidato
+                if ($resultadoCandidato->num_rows > 0) {
+                    $candidato = $resultadoCandidato->fetch_assoc();
+                    echo "<h2>Información del Candidato</h2>";
+                    echo "<p><strong>Nombre:</strong> " . $candidato["nombre"] . "</p>";
+                    echo "<p><strong>Dirección:</strong> " . $candidato["direccion"] . "</p>";
+                    echo "<p><strong>Edad:</strong> " . $candidato["edad"] . "</p>";
+                    echo "<p><strong>Discapacidad:</strong> " . $candidato["discapacidad"] . "</p>";
+                    echo "<p><strong>Habilidades:</strong> " . $candidato["habilidades"] . "</p>";
+                    echo "<p><strong>Teléfono:</strong> " . $candidato["telefono"] . "</p>";
+                    echo "<p><strong>Sexo:</strong> " . $candidato["sexo"] . "</p>";
+                    echo "<p><strong>Correo:</strong> " . $candidato["correo"] . "</p>";
+                    // Agrega más campos según sea necesario
                     echo "<button onclick='window.history.back()'>Volver</button>";
                 } else {
-                    echo "<p>No se encontró la vacante.</p>";
+                    echo "<p>No se encontró la información del candidato.</p>";
                     echo "<button onclick='window.history.back()'>Volver</button>";
                 }
             } else {
-                echo "<p>No se proporcionó un ID de vacante válido.</p>";
+                echo "<p>No se proporcionó un ID de candidato válido.</p>";
                 echo "<button onclick='window.history.back()'>Volver</button>";
             }
-            
+
             // Cerrar la conexión
             $conexion->close();
         ?>
-        <form action="procesar_solicitud.php" method="post">
-            <button>Solicitar </button>
-        </form>
+
     </main>
 </body>
 </html>

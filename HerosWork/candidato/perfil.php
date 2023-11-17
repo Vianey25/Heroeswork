@@ -13,7 +13,7 @@
         }
 
         header {
-            background-color: #333;
+            background-color: #9b77da;
             color: white;
             padding: 1em;
             text-align: center;
@@ -44,7 +44,7 @@
         }
 
         button {
-            background-color: #4caf50;
+            background-color: #6fa5b1;
             color: white;
             padding: 12px; /* Aumenta el padding del botón */
             border: none;
@@ -55,7 +55,7 @@
         }
 
         button:hover {
-            background-color: #45a049;
+            background-color: #4e6b9f;
         }
     </style>
 </head>
@@ -130,7 +130,25 @@
         <div style="text-align: center; margin-top: 20px;">
             <button style="display: inline-block; vertical-align: middle;" onclick="window.location.href='index.php'">Volver</button>
             <button style="display: inline-block; vertical-align: middle;" onclick="window.location.href='editar.php?id=<?php echo $candidatoID; ?>'">Editar</button>
+            <button style="display: inline-block; vertical-align: middle;" onclick="cerrarSesion()">Cerrar Sesión</button>
         </div>
+        
+
+<!-- Agrega este script JavaScript para manejar el cierre de sesión -->
+<script>
+    function cerrarSesion() {
+        // Realiza una solicitud al servidor para cerrar la sesión
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "cerrar_sesion.php", true);
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                // Redirige al index después de cerrar la sesión
+                window.location.href = '../index.php';
+            }
+        };
+        xhr.send();
+    }
+</script>
     </main>
 </body>
 </html>
