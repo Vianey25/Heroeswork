@@ -86,7 +86,7 @@
                     echo "<p><strong>Sueldo:</strong> $" . $vacante["sueldo"] . "</p>";
                     echo "<p><strong>Requisitos:</strong> " . $vacante["requisitos"] . "</p>";
                     echo "<p><strong>Responsabilidades:</strong> " . $vacante["responsabilidades"] . "</p>";
-                    echo "<button onclick='window.history.back()'>Volver</button>";
+                    echo "<button onclick='window.location.href=\"index.php\"'>Volver</button>";
                     echo "<button onclick='eliminarVacante($id_vacante)'>Eliminar Vacante</button>";
                 } else {
                     echo "<p>No se encontró la vacante.</p>";
