@@ -97,13 +97,12 @@
 <!-- Dentro del header -->
 <header>
     <h1>Vacantes</h1>
-    <a href="test/test.php" style="color: white;">Realiza tus test</a>
-    <a href="perfil.php"><button class="profile-button">Perfil</button></a>
+    <a href="test/test.php" style="color: white; text-decoration: none; font-size: 25px;">Realiza tus test</a>
+    <a href="perfil.php" style="color: white; text-decoration: none; font-size: 25px;">Ver Perfil</a>
 </header>
 
 
     <main>
-        <h2>Solicitudes Enviadas</h2>
         
         <?php
 
@@ -119,75 +118,93 @@
             // Incluir el archivo de conexión
             include('conexion.php');
 
-            // Consulta para obtener datos de la tabla Vacantes
-            $consulta = "SELECT * FROM solicitud WHERE id_candidato = '$candidatoID'";
+            // Consulta para contar cuántos tests ha contestado el candidato
+            $consultaTestsContestados = "SELECT COUNT(*) as total_tests FROM test WHERE id_candidato = '$candidatoID'";
+            $resultadoTestsContestados = $conexion->query($consultaTestsContestados);
+
+            // Verificar el número de tests contestados
+            if ($resultadoTestsContestados->num_rows > 0) {
+                $filaTestsContestados = $resultadoTestsContestados->fetch_assoc();
+                $totalTestsContestados = $filaTestsContestados["total_tests"];
+
+                // Verificar si el candidato ha contestado al menos 4 tests
+                if ($totalTestsContestados == 4) {
+
+                    // Consulta para obtener datos de la tabla Vacantes
+                    $consulta = "SELECT * FROM solicitud WHERE id_candidato = '$candidatoID'";
+                    $resultado = $conexion->query($consulta);
+                    ?>
+                        <h2>Solicitudes Enviadas</h2>
+                    <?php
+                    // Mostrar los datos en la página
+                    if ($resultado->num_rows > 0) {
+                        echo "<ul>";
+                        while ($fila = $resultado->fetch_assoc()) {
+                            // Obtener el título de la vacante mediante una segunda consulta
+                            $idVacante = $fila["id_vacante"];
+                            $consultaVacante = "SELECT titulo FROM vacantes WHERE id_vacante = '$idVacante'";
+                            $resultadoVacante = $conexion->query($consultaVacante);
+                            
+                            if ($resultadoVacante->num_rows > 0) {
+                                $filaVacante = $resultadoVacante->fetch_assoc();
+                                $tituloVacante = $filaVacante["titulo"];
+                            } else {
+                                // Manejar el caso en que no se encuentre la vacante
+                                $tituloVacante = "Vacante no encontrada";
+                            }
+
+                            // Mostrar los datos en la página
+                            echo "<li>";
+                            echo "<h3>" . $tituloVacante . "</h3>";
+                            echo "<p> Estado: " . $fila["estado"] . "</p>";
+                            echo "</li>";
+                        }
+                        echo "</ul>";
+                    } else {
+                        echo "No hay solicitudes.";
+                    }
+                    // Cerrar la conexión
+                    $conexion->close();
+                ?>
+                <h2>Vacantes Disponibles</h2>
+
+                <?php
+            // Incluir el archivo de conexión
+            include('conexion.php');
+
+            // Obtener el id_candidato (asegúrate de tener esta variable antes de la consulta)
+            $id_candidato = $candidatoID; // Reemplaza esto con la forma en que obtienes el id_candidato
+
+            // Consulta para obtener datos de la tabla Vacantes excluyendo las ya solicitadas por el candidato
+            $consulta = "SELECT * FROM vacantes v
+                        WHERE NOT EXISTS (
+                            SELECT 1 FROM solicitud s
+                            WHERE s.id_vacante = v.id_vacante
+                            AND s.id_candidato = $id_candidato
+                        )";
+
             $resultado = $conexion->query($consulta);
 
             // Mostrar los datos en la página
             if ($resultado->num_rows > 0) {
                 echo "<ul>";
                 while ($fila = $resultado->fetch_assoc()) {
-                    // Obtener el título de la vacante mediante una segunda consulta
-                    $idVacante = $fila["id_vacante"];
-                    $consultaVacante = "SELECT titulo FROM vacantes WHERE id_vacante = '$idVacante'";
-                    $resultadoVacante = $conexion->query($consultaVacante);
-                    
-                    if ($resultadoVacante->num_rows > 0) {
-                        $filaVacante = $resultadoVacante->fetch_assoc();
-                        $tituloVacante = $filaVacante["titulo"];
-                    } else {
-                        // Manejar el caso en que no se encuentre la vacante
-                        $tituloVacante = "Vacante no encontrada";
-                    }
-
-                    // Mostrar los datos en la página
                     echo "<li>";
-                    echo "<h3>" . $tituloVacante . "</h3>";
-                    echo "<p> Estado: " . $fila["estado"] . "</p>";
+                    echo "<h3>" . $fila["titulo"] . "</h3>";
+                    echo "<p>" . $fila["descripcion"] . "</p>";
+                    echo "<a href='ver_vacante.php?id=" . $fila["id_vacante"] . "'><button>Ver más</button></a>";
                     echo "</li>";
                 }
                 echo "</ul>";
             } else {
-                echo "No hay solicitudes.";
+                echo "No hay vacantes disponibles.";
             }
-
-            // Cerrar la conexión
-            $conexion->close();
-        ?>
-        <h2>Vacantes Disponibles</h2>
-
-        <?php
-    // Incluir el archivo de conexión
-    include('conexion.php');
-
-    // Obtener el id_candidato (asegúrate de tener esta variable antes de la consulta)
-    $id_candidato = $candidatoID; // Reemplaza esto con la forma en que obtienes el id_candidato
-
-    // Consulta para obtener datos de la tabla Vacantes excluyendo las ya solicitadas por el candidato
-    $consulta = "SELECT * FROM vacantes v
-                 WHERE NOT EXISTS (
-                    SELECT 1 FROM solicitud s
-                    WHERE s.id_vacante = v.id_vacante
-                    AND s.id_candidato = $id_candidato
-                 )";
-
-    $resultado = $conexion->query($consulta);
-
-    // Mostrar los datos en la página
-    if ($resultado->num_rows > 0) {
-        echo "<ul>";
-        while ($fila = $resultado->fetch_assoc()) {
-            echo "<li>";
-            echo "<h3>" . $fila["titulo"] . "</h3>";
-            echo "<p>" . $fila["descripcion"] . "</p>";
-            echo "<a href='ver_vacante.php?id=" . $fila["id_vacante"] . "'><button>Ver más</button></a>";
-            echo "</li>";
+        }else{
+            ?>
+                <h1>Primero realiza tus test</h1>
+            <?php
         }
-        echo "</ul>";
-    } else {
-        echo "No hay vacantes disponibles.";
     }
-
     // Cerrar la conexión
     $conexion->close();
 ?>
