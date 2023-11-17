@@ -41,7 +41,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['puntuacion'])) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Formulario de Color</title>
+  <link rel="stylesheet" type="text/css" href="css/styles_colores.css">
+  <link rel="icon" type="image/png" href="assets/logo.ico">
+  <title>Test 4. Colores</title>
   <style>
     .colorBox {
       width: 100px;
@@ -51,9 +53,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['puntuacion'])) {
   </style>
 </head>
 <body>
+<header>
+      <div class="logo">
+          <img src="assets/logo.png" alt="Logo"> <p class="hero">HeroesWork</p>
+      </div>
+      <nav>
+          <a href="#">Inicio</a>
+          <a href="#">Sobre nosotros</a>
+          <a href="#">Contacto</a>
+      </nav>
+  </header>
   <div id="formulario">
-    <h1>¿Cuál es el color correcto?</h1>
-
+  <h1> Test 4. Test de colores</h1>
+<h2>Instrucciones</h2>
+<h3>Selecciona el color correcto de la figura que se muestra</h3>
+<h4>¿Cuál es el color correcto?</h4>
     <!-- Formularios -->
     <!-- Primer formulario -->
     <form action="#" method="post" class="colorForm">

@@ -1,0 +1,119 @@
+/* styles.css */
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f8ff; /* Azul claro */
+    color: #000;
+    margin: 0;
+    text-align: center;
+  }
+  
+  header {
+    display: flex;
+    background-color: #183146; /* Azul fuerte */
+    min-height: 70px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1px;
+    color: white;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo img {
+    height: 60px;
+    margin-left: 10px;
+  }
+  
+  nav {
+    margin-right: 10px;
+  }
+  
+  nav a {
+    font-weight: 600;
+    font-size: 20px;
+    margin-right: 10px;
+    color: white;
+    font-family: 'Ubuntu', sans-serif;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  nav a:last-child {
+    margin-left: auto;
+  }
+  
+  nav a:hover {
+    color: #D5D8DC;
+  }
+  
+  #formulario {
+    text-align: center;
+    margin: 20px auto;
+  }
+  
+  h1, h2, h3, h4 {
+    text-align: center;
+    font-size: 30px;
+    color: #000000; /* Azul fuerte */
+  }
+  
+  .shapeForm {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row; /* Cambiado de columna a fila */
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .shapeBox {
+    width: 100px;
+    height: 100px;
+    margin-right: 10px; /* Espacio entre la imagen y las opciones */
+  }
+  
+  .shapeBox img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+  
+  form {
+    margin-bottom: 20px;
+  }
+  
+  button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #3498db; /* Azul suave */
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #183146; /* Cambio de color al pasar el ratón */
+  }
+  
+  #puntuacion {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 18px;
+  }
+  
+  #puntos {
+    color: #800080; /* Morado */
+    font-weight: bold;
+  }
+  
+  p {
+    margin-left: 10px;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+}

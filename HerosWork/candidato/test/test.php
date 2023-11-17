@@ -16,7 +16,7 @@ if (isset($_SESSION['id_candidato'])) {
     $sql = "SELECT * FROM test WHERE id_candidato = $candidatoID";
     $result = $conexion->query($sql);
 
-    // Array to store completed tests
+    // Array to store complet   ed tests
     $completedTests = [];
 
     if ($result->num_rows > 0) {

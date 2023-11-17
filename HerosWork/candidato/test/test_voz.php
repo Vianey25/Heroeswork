@@ -1,88 +1,111 @@
 <?php
-// Iniciar la sesión
-session_start();
-
-// Verificar si la sesión está configurada
-if (isset($_SESSION['id_candidato'])) {
-    // Obtener el ID del candidato desde la sesión
-    $candidatoID = $_SESSION['id_candidato'];
-}
-
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["palabraRepetida"])) {
     // Obtén la palabra repetida desde la solicitud AJAX
     $palabraRepetida = $_POST["palabraRepetida"];
 
     // Obtén la palabra mostrada (puedes cambiarla dinámicamente según tus necesidades)
     $palabraMostrada = "Hola";
-    $tipo_test = "test_voz";
 
-    // Incluir el archivo de conexión
-    include('../conexion.php');
+    // Conéctate a la base de datos y realiza las operaciones necesarias
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "testing";
+
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
+    if ($conn->connect_error) {
+        die("Conexión fallida: " . $conn->connect_error);
+    }
 
     // Verifica si la palabra repetida coincide con la palabra mostrada
     if (strtolower($palabraRepetida) == strtolower($palabraMostrada)) {
         // Establece el valor en la consulta SQL como 10
-        
-        $sql = "INSERT INTO test (id_candidato, resultado, tipo_test) VALUES ('$candidatoID', '10', '$tipo_test')";
+        $sql = "INSERT INTO test (resultados) VALUES ('10')";
 
-        if ($conexion->query($sql) !== TRUE) {
-            die("Error al insertar palabra repetida: " . $conexion->error);
+        if ($conn->query($sql) !== TRUE) {
+            die("Error al insertar palabra repetida: " . $conn->error);
         }
 
         // Muestra una ventana emergente con el mensaje correcto
         echo "<script>alert('¡Correcto!');</script>";
     } else {
         // Si no coincide, muestra el mensaje de error y establece el valor en la tabla como 0
-        $sqlError = "INSERT INTO test (id_candidato, resultado, tipo_test) VALUES ('$candidatoID', '0', '$tipo_test')";
-        if ($conexion->query($sqlError) !== TRUE) {
-            die("Error al insertar palabra incorrecta: " . $conexion->error);
+        $sqlError = "INSERT INTO test (resultados) VALUES ('0')";
+        if ($conn->query($sqlError) !== TRUE) {
+            die("Error al insertar palabra incorrecta: " . $conn->error);
         }
         echo "<script>alert('Oops, error. Inténtalo de nuevo.');</script>";
     }
 
     // Después de realizar la inserción en la base de datos
     // Obtén el puntaje actual de la base de datos
-    $sqlPuntaje = "SELECT resultado FROM test ORDER BY id_test DESC LIMIT 1";
-    $resultadoPuntaje = $conexion->query($sqlPuntaje);
+    $sqlPuntaje = "SELECT resultados FROM test ORDER BY id_test DESC LIMIT 1";
+    $resultadoPuntaje = $conn->query($sqlPuntaje);
 
     if ($resultadoPuntaje->num_rows > 0) {
         $filaPuntaje = $resultadoPuntaje->fetch_assoc();
-        $puntajeActual = $filaPuntaje["resultado"];
+        $puntajeActual = $filaPuntaje["resultados"];
 
         // Cierra la conexión después de obtener el puntaje
-        $conexion->close();
+        $conn->close();
     }
 }
 ?>
-
 
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario Interactivo</title>
+    <link rel="stylesheet" type="text/css" href="css/styles_voz.css">
+    <link rel="icon" type="image/png" href="assets/logo.ico">
+    <title>Test 1. Voz</title>
 </head>
 <body>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Tu Página</title>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="assets/logo.png" alt="Logo"> <p class="hero">HeroesWork</p>
+    </div>
+    <nav>
+      <a href="#">Inicio</a>
+      <a href="#">Sobre nosotros</a>
+      <a href="#">Contacto</a>
+    </nav>
+  </header>
+<nav>
 
-<h2>Instrucciones: Repite la palabra que se muestra en pantalla.</h2>
+</nav>
+
+<h1> Test 1. Test de voz</h1>
+<h2>Instrucciones</h2>
+<h3>¡Escribe o repite la palabra que se muestra en pantalla!</h3>
+<h4>Puedes presionar el botón de Hablar :) para activar tu micrófono</h4>
 
 <form id="miFormulario" action="" method="post">
     <p>
         <label>
-            Palabra a repetir:
             <span id="palabraMostrada">Hola</span>
         </label>
     </p>
 
     <p>
         <label>
-            <input type="text" name="palabraRepetida" id="palabraRepetida" placeholder="Escribe la palabra aquí">
+            <input type="text" name="palabraRepetida" id="palabraRepetida" placeholder="Escribe o habla...">
         </label>
     </p>
 
     <p>
-        <button type="button" onclick="activarMicrofono()">Habla :)</button>
+        <button class="button1" type="button" onclick="activarMicrofono()">Habla :)</button>
     </p>
 
     <input type="submit" value="Enviar">
@@ -132,7 +155,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["palabraRepetida"])) {
     }
 
     // Agrega un botón de "Atrás"
-    document.write('<button onclick="window.location.href=\'test.php\'">Atrás</button>');
+    //document.write('<button onclick="window.location.href=\'index.php\'">Atrás</button>');
 </script>
 
 </body>
