@@ -30,7 +30,7 @@ CREATE TABLE Candidato (
     direccion VARCHAR(255),
     edad INT,
     discapacidad VARCHAR(255),
-    habilidades TEXT,
+    habilidades VARCHAR(550),
     telefono VARCHAR(15),
     sexo VARCHAR(10),
     correo VARCHAR(255),
