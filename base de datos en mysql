@@ -28,8 +28,7 @@ CREATE TABLE Candidato (
     habilidades TEXT,
     telefono VARCHAR(15),
     sexo VARCHAR(10),
-    correo VARCHAR(255),
-    FOREIGN KEY (id_escuela) REFERENCES Escuela(id_escuela)
+    correo VARCHAR(255)
 );
 
 -- Crear la tabla Vacantes
@@ -41,8 +40,7 @@ CREATE TABLE Vacantes (
     tiempo VARCHAR(50),
     sueldo DECIMAL(10, 2),
     requisitos TEXT,
-    responsabilidades TEXT,
-    FOREIGN KEY (id_empresa) REFERENCES Empresa(id_empresa)
+    responsabilidades TEXT
 );
 
 -- Crear la tabla Solicitud
@@ -51,9 +49,7 @@ CREATE TABLE Solicitud (
     id_vacante INT,
     id_candidato INT,
     estado VARCHAR(50),
-    fecha DATE,
-    FOREIGN KEY (id_vacante) REFERENCES Vacantes(id_vacante),
-    FOREIGN KEY (id_candidato) REFERENCES Candidato(id_candidato)
+    fecha DATE
 );
 
 -- Crear la tabla Test
@@ -61,7 +57,5 @@ CREATE TABLE Test (
     id_test INT PRIMARY KEY,
     id_solicitud INT,
     id_candidato INT,
-    resultados TEXT,
-    FOREIGN KEY (id_solicitud) REFERENCES Solicitud(id_solicitud),
-    FOREIGN KEY (id_candidato) REFERENCES Candidato(id_candidato)
+    resultados TEXT
 );
