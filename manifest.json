@@ -1,0 +1,41 @@
+{
+    "lang": "en-us",
+    "name": "Heroes_Work",
+    "name_description":"Proyecto basado en trabajo decente desarrolado en hakaton Utec 2023",
+    "short_name": "heroes_work",
+    "short_name_description":" Muestra el nombre de la aplicación cuando no hay suficiente espacio para name.",
+    "description": "pwa heroes work",
+    "start_url": "/",
+    "start_url_description":"Dirección URL preferida a la que se debe navegar cuando el sistema operativo inicia la aplicación.",
+    "background_color": "#FFFFFF",
+    "background_color_description":"Color de fondo de la ventana donde se inicia la aplicación",
+    "theme_color": "#FFFFFF",
+    "theme_color_description":"Color de tema predeterminado para la aplicación.",
+    "orientation": "portrait-primary",
+    "orientation_description":"En los dispositivos compatibles, esto define la orientación predeterminada de la aplicación.",
+    "display": "standalone",
+    "display_description":"Abre la aplicación web para que parezca una aplicación independiente. ",
+    "icons_description":"Matriz de objetos de imagen de icono que usa el sistema operativo en contextos diferentes.",
+    "icons": [
+            {
+                "src": "img/icon1.png",
+                "sizes": "16x16"
+            },
+            {
+              "src": "img/icon2.png",
+              "sizes": "32x32"
+      
+            },
+            {
+              "src": "img/icon3.png",
+              "sizes": "192x192"
+      
+            },
+            {
+              "src": "img/icon4.png",
+              "sizes": "512x512"
+      
+            }   
+        
+    ]
+  }
