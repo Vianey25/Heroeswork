@@ -25,7 +25,7 @@ CREATE TABLE Escuela (
 -- Crear la tabla Candidato
 CREATE TABLE Candidato (
     id_candidato INT PRIMARY KEY AUTO_INCREMENT,
-    id_escuela INT,
+    id_escuela TEXT,
     nombre VARCHAR(255) NOT NULL,
     direccion VARCHAR(255),
     edad INT,
@@ -61,7 +61,6 @@ CREATE TABLE Solicitud (
 -- Crear la tabla Test
 CREATE TABLE Test (
     id_test INT PRIMARY KEY AUTO_INCREMENT,
-    id_solicitud INT,
     id_candidato INT,
     resultados TEXT
 );
