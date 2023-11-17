@@ -4,8 +4,137 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HeroesWork</title>
+    <style>
+        header {
+    display: flex;
+    background-color: #183146; /* Azul fuerte */
+    min-height: 70px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1px;
+    color: white;
+}
+h1 {
+    text-align: center;
+    font-size: 40px;
+    color: #000000; /* Azul fuerte */
+}
+
+h2 {
+    text-align: center;
+    font-size: 30px;
+    color: #000000; /* Azul fuerte */
+}
+
+h3 {
+    text-align: center;
+    font-size: 20px;
+    color: #000000; /* Azul fuerte */
+    margin-bottom: -15px; /* Ajusta la cantidad de espacio entre h3 y h4 según sea necesario */
+}
+
+h4 {
+    text-align: center;
+    font-size: 30px;
+    color: #000000; /* Azul fuerte */
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 60px;
+    margin-left: 10px;
+}
+
+nav {
+    margin-right: 10px;
+}
+
+nav a {
+    font-weight: 600;
+    font-size: 20px;
+    margin-right: 10px;
+    color: white;
+    font-family: 'Ubuntu', sans-serif;
+    text-decoration: none;
+    transition: color 0.3s ease; /* Agregado para una transición suave del color al pasar el ratón */
+}
+
+nav a:last-child {
+    margin-left: auto;
+}
+
+nav a:hover {
+    color: #D5D8DC;
+}
+.numberForm {
+    margin-top: 20px;
+}
+p{
+    margin-left: 10px;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+}
+.numberBox {
+    width: 100px;
+    height: 100px;
+    margin-top: 10px; /* Espaciado entre los elementos */
+    display: inline-block;
+    text-align: center;
+    line-height: 100px;
+    font-size: 24px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+input[type="radio"] {
+    margin-right: 5px;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #3498db; /* Azul suave */
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Agregado para un efecto suave al pasar el ratón */
+}
+
+button:hover {
+    background-color: #183146; /* Cambio de color al pasar el ratón */
+}
+
+#puntuacion {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+#puntos {
+    color: #800080; /* Morado */
+    font-weight: bold;
+}
+    </style>
 </head>
 <body>
+<header>
+      <div class="logo">
+          <img src="assets/logo.png" alt="Logo"> <p class="hero">HeroesWork</p>
+      </div>
+      <nav>
+          <a href="#"></a>
+          <a href="#"></a>
+          <a href="#"></a>
+      </nav>
+  </header>
 <?php
 session_start();
 
