@@ -23,7 +23,7 @@
   <section id="banner">
     <div class="contenido-banner">
       <h1>Consigue un trabajo</h1>
-      <button>Regristrate</button>
+      <button><a href="registro.php">Registrate</a></button>
     </div>
   </section>
   <section id="quienSomos">
