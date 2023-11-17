@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tu Perfil</title>
+    <title>Detalles de la Vacante</title>
     <style>
         body {
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
-            text-align: center;
         }
 
         header {
@@ -22,10 +21,12 @@
 
         main {
             padding: 20px;
-        }
-
-        h1 {
-            color: #333;
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
         }
 
         h2 {
@@ -33,24 +34,38 @@
         }
 
         p {
-            font-size: 16px;
+            font-size: 16px; /* Aumenta el tamaño de la fuente */
             color: #555;
         }
 
-        #profile-picture {
-            max-width: 200px;
-            border-radius: 50%;
-            margin-bottom: 20px;
+        hr {
+            border: 2px solid #ddd; /* Aumenta el grosor de la línea */
+            margin: 30px 0;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: white;
+            padding: 12px; /* Aumenta el padding del botón */
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            display: block;
+            margin: 20px auto; /* Centra el botón */
+        }
+
+        button:hover {
+            background-color: #45a049;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Mi Perfil</h1>
+        <h1>Detalles de la Vacante</h1>
     </header>
 
-    <main>
-        <?php
+    <main >
+    <?php
             // Incluir el archivo de conexión
             include('conexion.php');
 
@@ -98,6 +113,14 @@
             // Cerrar la conexión
             $conexion->close();
         ?>
+        <div style="text-align: center; margin-top: 20px;">
+
+        <button style="display: inline-block; vertical-align: middle;" onclick="window.location.href='index.php'">Volver</button>
+
+        <button style="display: inline-block; vertical-align: middle;" onclick="window.location.href='editar.php?id=<?php echo $candidatoID; ?>'">Editar</button>
+
+        </div>
+
     </main>
 </body>
 </html>
