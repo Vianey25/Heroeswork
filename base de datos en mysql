@@ -59,7 +59,7 @@ CREATE TABLE Solicitud (
     fecha DATE
 );
 
-CREATE TABLE EstructuraTest (
+CREATE TABLE test (
     id_test INT PRIMARY KEY,
     id_candidato INT NULL,
     estado INT,
