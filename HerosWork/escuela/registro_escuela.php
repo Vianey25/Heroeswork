@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro de Empresa</title>
+    <title>Registro de Escuela</title>
 </head>
 <body>
 
-<h2>Registro de Empresa</h2>
+<h2>Registro de Escuela</h2>
 
 <?php
 // Procesar el formulario cuando se envíe
