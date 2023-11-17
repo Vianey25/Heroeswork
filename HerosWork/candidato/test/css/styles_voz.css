@@ -1,0 +1,169 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff; /* Azul claro */
+    color: #000;
+}
+
+nav li {
+    display: inline;
+    margin-right: 20px;
+}
+
+
+h1 {
+    text-align: center;
+    font-size: 40px;
+    color: #000000; /* Azul fuerte */
+}
+
+h2 {
+    text-align: center;
+    font-size: 30px;
+    color: #000000; /* Azul fuerte */
+}
+
+h3 {
+    text-align: center;
+    font-size: 20px;
+    color: #000000; /* Azul fuerte */
+    margin-bottom: -15px; /* Ajusta la cantidad de espacio entre h3 y h4 según sea necesario */
+}
+
+h4 {
+    text-align: center;
+    font-size: 20px;
+    color: #000000; /* Azul fuerte */
+}
+
+#palabraMostrada {
+    font-size: 50px;
+    font-weight: bold;
+    color: #b6b6fc; /* Morado */
+    display: block;
+    margin-bottom: 10px;
+}
+
+#miFormulario {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff; /* Blanco */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+.button1 {
+    width: 50%;
+    font-size: 20px;
+    background-color: #b6b6fc; /* Azul fuerte */
+    color: #ffffff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #183146; /* Azul más oscuro al pasar el ratón */
+}
+
+#puntajeResultado {
+    font-weight: bold;
+    color: #800080; /* Morado */
+}
+
+button.back {
+    background-color: #b6b6fc; /* Azul fuerte */
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button.back:hover {
+    background-color: #183146; /* Azul más oscuro al pasar el ratón */
+}
+
+/* Estilos para el botón de enviar */
+input[type="submit"] {
+    /* Agrega estilos de diseño general */
+    padding: 10px 15px; /* Ajusta el relleno según sea necesario */
+    font-size: 16px;
+    background-color: #b6b6fc; /* Color de fondo */
+    color: #fff; /* Color del texto */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+  }
+  
+  /* Cambia el color de fondo al pasar el ratón sobre el botón */
+  input[type="submit"]:hover {
+    background-color:  #183146;
+  }
+  
+  /* Header */
+a {
+    text-decoration: none;
+    color: white;
+}
+
+header {
+    display: flex;
+    background-color: #183146;
+    min-height: 70px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1px;
+    color: white;
+    padding: 10px;
+    height: 60px;
+    width: 1523px;
+    margin: -1%;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 60px;
+    margin-left: 10px;
+}
+
+p{
+    margin-left: 10px;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+nav a {
+    font-weight: 600;
+    font-size: 20px;
+    margin-right: 10px;
+    color: white;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+nav a:last-child {
+    margin-left: auto;
+}
+
+nav a:hover {
+    color: #D5D8DC;
+}

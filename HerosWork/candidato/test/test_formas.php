@@ -40,7 +40,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['puntuacion'])) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Formulario de Formas Geométricas</title>
+  <link rel="stylesheet" type="text/css" href="css/styles_formas.css">
+  <link rel="icon" type="image/png" href="assets/logo.ico">
+  <title>Test 3. Formas</title>
   <style>
     .shapeBox {
       width: 100px;
@@ -51,13 +53,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['puntuacion'])) {
   </style>
 </head>
 <body>
+<header>
+    <div class="logo">
+        <img src="assets/logo.png" alt="Logo"> <p class="hero">HeroesWork</p>
+    </div>
+    <nav>
+        <a href="#">Inicio</a>
+        <a href="#">Sobre nosotros</a>
+        <a href="#">Contacto</a>
+    </nav>
+</header>
   <div id="formulario">
-    <h1>¿Cuál es la forma correcta?</h1>
-
+  <h1> Test 3. Test de formas</h1>
+<h2>Instrucciones</h2>
+<h3>Selecciona el nombre correcto de la figura que se muestra</h3>
+<h4>¿Cuál es la forma correcta?</h4>
     <!-- Formularios -->
     <!-- Primer formulario -->
     <form action="#" method="post" class="shapeForm">
-      <div class="shapeBox"> <img class="shapeBox" src="img/circulo.png" alt=""></div>
+      <div class="shapeBox"> <img class="shapeBox" src="assets/circulo.png" alt=""></div>
       <input type="radio" name="shape" value="circle"> Círculo
       <input type="radio" name="shape" value="square"> Cuadrado
       <input type="radio" name="shape" value="triangle"> Triángulo
@@ -66,7 +80,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['puntuacion'])) {
 
     <!-- Segundo formulario -->
     <form action="#" method="post" class="shapeForm">
-      <div class="shapeBox"><img class="shapeBox" src="img/cuadrado.png" alt=""></div>
+      <div class="shapeBox"><img class="shapeBox" src="assets/cuadrado.png" alt=""></div>
       <input type="radio" name="shape" value="cuadrado"> Cuadrado
       <input type="radio" name="shape" value="octagon"> Octágono
       <input type="radio" name="shape" value="star"> Estrella
@@ -75,7 +89,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['puntuacion'])) {
 
     <!-- Tercer formulario -->
     <form action="#" method="post" class="shapeForm">
-      <div class="shapeBox"><img class="shapeBox" src="img/triangulo.png" alt=""></div>
+      <div class="shapeBox"><img class="shapeBox" src="assets/triangulo.png" alt=""></div>
       <input type="radio" name="shape" value="triangulo"> Triangulo
       <input type="radio" name="shape" value="arrow"> Flecha
       <input type="radio" name="shape" value="cross"> Cruz

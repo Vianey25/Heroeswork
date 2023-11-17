@@ -40,7 +40,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['puntuacion'])) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Formulario de Números</title>
+  <link rel="stylesheet" type="text/css" href="css/styles_numeros.css">
+  <link rel="icon" type="image/png" href="assets/logo.ico">
+  <title>Test 2. Números</title>
   <style>
     .numberBox {
       width: 100px;
@@ -51,37 +53,69 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['puntuacion'])) {
   </style>
 </head>
 <body>
+  <header>
+      <div class="logo">
+          <img src="assets/logo.png" alt="Logo"> <p class="hero">HeroesWork</p>
+      </div>
+      <nav>
+          <a href="#">Inicio</a>
+          <a href="#">Sobre nosotros</a>
+          <a href="#">Contacto</a>
+      </nav>
+  </header>
   <div id="formulario">
-    <h1>¿Cuál es el número correcto?</h1>
-
+  <h1> Test 2. Test de números</h1>
+<h2>Instrucciones</h2>
+<h3>Selecciona el número que se muestra dentro de la figura</h3>
+<h4>¿Cuál es el número correcto?</h4>
     <!-- Formularios -->
     <!-- Primer formulario -->
     <form action="#" method="post" class="numberForm">
       <div class="numberBox" style="background-color: #3498db;">1</div>
-      <input type="radio" name="number" value="1"> 1
-      <input type="radio" name="number" value="2"> 2
-      <input type="radio" name="number" value="3"> 3
-      <input type="radio" name="number" value="4"> 4
+    <input type="radio" id="number1" name="number" value="1">
+    <label for="number1">1</label>
+    
+    <input type="radio" id="number2" name="number" value="2">
+    <label for="number2">2</label>
+    
+    <input type="radio" id="number3" name="number" value="3">
+    <label for="number3">3</label>
+    
+    <input type="radio" id="number4" name="number" value="4">
+    <label for="number4">4</label>
     </form>
 
     <!-- Segundo formulario -->
     <form action="#" method="post" class="numberForm">
       <div class="numberBox" style="background-color: #8e44ad;">2</div>
-      <input type="radio" name="number" value="2"> 2
-      <input type="radio" name="number" value="5"> 5
-      <input type="radio" name="number" value="8"> 8
-      <input type="radio" name="number" value="10"> 10
+    <input type="radio" id="number2_1" name="number" value="2">
+    <label for="number2_1">2</label>
+
+    <input type="radio" id="number2_5" name="number" value="5">
+    <label for="number2_5">5</label>
+
+    <input type="radio" id="number2_8" name="number" value="8">
+    <label for="number2_8">8</label>
+
+    <input type="radio" id="number2_10" name="number" value="10">
+    <label for="number2_10">10</label>
     </form>
 
     <!-- Tercer formulario -->
     <form action="#" method="post" class="numberForm">
       <div class="numberBox" style="background-color: #1abc9c;">3</div>
-      <input type="radio" name="number" value="3"> 3
-      <input type="radio" name="number" value="6"> 6
-      <input type="radio" name="number" value="9"> 9
-      <input type="radio" name="number" value="12"> 12
-    </form>
+    <input type="radio" id="number3_3" name="number" value="3">
+    <label for="number3_3">3</label>
 
+    <input type="radio" id="number3_6" name="number" value="6">
+    <label for="number3_6">6</label>
+
+    <input type="radio" id="number3_9" name="number" value="9">
+    <label for="number3_9">9</label>
+
+    <input type="radio" id="number3_12" name="number" value="12">
+    <label for="number3_12">12</label>
+</form>
     <!-- Botón de verificación -->
     <button type="button" onclick="verificarRespuestas()">Verificar</button>
   </div>
@@ -107,7 +141,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['puntuacion'])) {
           }
         }
       }
-
       // Actualizar la puntuación en el frontend
     document.getElementById('puntos').innerText = aciertos;
 
@@ -132,5 +165,3 @@ xhr.send('puntuacion=' + aciertos);
   </script>
 </body>
 </html>
-
-
