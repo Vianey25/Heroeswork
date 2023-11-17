@@ -59,12 +59,11 @@ CREATE TABLE Solicitud (
     fecha DATE
 );
 
--- Crear la tabla Test
-CREATE TABLE Test (
-    id_test INT PRIMARY KEY AUTO_INCREMENT,
-    id_candidato INT,
-    resultados TEXT,
-    test_colores INT,
-    test_formas INT,
-    test_numeros INT
+CREATE TABLE EstructuraTest (
+    id_test INT PRIMARY KEY,
+    id_candidato INT NULL,
+    estado INT,
+    resultado VARCHAR(30),
+    tipo_test VARCHAR(30)
 );
+
