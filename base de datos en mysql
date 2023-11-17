@@ -61,7 +61,6 @@ CREATE TABLE Solicitud (
 -- Crear la tabla Test
 CREATE TABLE Test (
     id_test INT PRIMARY KEY AUTO_INCREMENT,
-    id_solicitud INT,
     id_candidato INT,
     resultados TEXT
 );
