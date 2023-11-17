@@ -1,2 +1,2 @@
 # Heroeswork
-Proyecto realizado e hakaton
+Proyecto realizado en el hakaton UTEC 2023
