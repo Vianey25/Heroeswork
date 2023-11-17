@@ -1,6 +1,6 @@
-CREATE DATABASE Heroeswork;
+-- CREATE DATABASE Heroeswork;
 
-USE Heroeswork;
+-- USE Heroeswork;
 
 -- Crear la tabla Empresa
 CREATE TABLE Empresa (
@@ -19,7 +19,7 @@ CREATE TABLE Escuela (
     id_escuela INT PRIMARY KEY AUTO_INCREMENT,
     nombre VARCHAR(255) NOT NULL,
     direccion VARCHAR(255),
-    telefono VARCHAR(15)
+    telefono VARCHAR(15),
     contraseña VARCHAR(50)
 );
 
