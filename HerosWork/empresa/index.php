@@ -114,13 +114,13 @@
 <body>
 <!-- Dentro del header -->
 <header>
-    <h1>Vacantes</h1>
+    <h1>Empresa</h1>
     <a href="perfil.php"><button class="profile-button">Perfil</button></a>
 </header>
 
 
     <main>
-        <h2>Vacantes Disponibles</h2>
+        <h2>Vacantes</h2>
 
         <?php
 // Incluir el archivo de conexión

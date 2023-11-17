@@ -96,7 +96,7 @@
 <body>
 <!-- Dentro del header -->
 <header>
-    <h1>Vacantes</h1>
+    <h1>Candidato</h1>
     <a href="perfil.php"><button class="profile-button">Perfil</button></a>
 </header>
 
