@@ -3,10 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro de Empresa</title>
+    <title>Formulario de Registro de Empresa</title>
     <style>
-        .oculto {
-            display: none;
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -14,7 +46,7 @@
 
 <h2>Formulario de Registro de Empresa</h2>
 
-<form action="procesar_registro_empresa.php" method="POST">
+
     <label for="nombre">Nombre:</label>
     <input type="text" id="nombre" name="nombre" required>
 
