@@ -48,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if ($contrasena === $contrasenaEmpresaAlmacenada) {
                 session_start();
                 $_SESSION['id_empresa'] = $id_empresa;
-                header("Location: empresa/index.php");
+                header("Location: empresa/");
                 exit();
             } else {
                 echo "Credenciales incorrectas para la empresa. Inténtalo de nuevo.";
