@@ -22,6 +22,13 @@
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
 
         h2 {
             text-align: center;
@@ -49,11 +56,30 @@
 
         input[type="submit"]:hover {
             background-color: #4e6b9f;
+        },
+        a {
+            text-decoration: none;
+            display: block;
+            margin-top: 10px;
+            color: #3498db;
+        }
+
+        button {
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #2980b9;
         }
     </style>
 </head>
 <body>
-
+<div class="container">
     <form action="login.php" method="post">
         <h2>Iniciar Sesión</h2>
         
@@ -64,7 +90,14 @@
         <input type="password" id="password" name="password" required>
 
         <input type="submit" value="Iniciar Sesión">
+
     </form>
+    <br>
+    <a href="index.php"><button>Volver a Inicio</button></a>
+    </div>
+  
+
+ 
 
 </body>
 </html>
