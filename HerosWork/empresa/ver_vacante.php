@@ -87,9 +87,12 @@
                     echo "<p><strong>Requisitos:</strong> " . $vacante["requisitos"] . "</p>";
                     echo "<p><strong>Responsabilidades:</strong> " . $vacante["responsabilidades"] . "</p>";
                     echo "<button onclick='window.history.back()'>Volver</button>";
+                    echo "<button onclick='eliminarVacante($id_vacante)'>Eliminar Vacante</button>";
                 } else {
                     echo "<p>No se encontró la vacante.</p>";
                     echo "<button onclick='window.history.back()'>Volver</button>";
+                    
+
                 }
             } else {
                 echo "<p>No se proporcionó un ID de vacante válido.</p>";
@@ -100,5 +103,16 @@
             $conexion->close();
         ?>
     </main>
+    <script>
+    function eliminarVacante(id) {
+        var confirmacion = confirm("¿Estás seguro de que deseas eliminar esta vacante?");
+
+        if (confirmacion) {
+            // Redirigir a un script de eliminación (por ejemplo, eliminar_vacante.php) con el ID de la vacante
+            window.location.href = 'eliminar_vacante.php?id=' + id;
+        }
+    }
+</script>
+
 </body>
 </html>
