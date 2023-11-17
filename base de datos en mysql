@@ -9,6 +9,29 @@ CREATE TABLE Empresa (
     RFC VARCHAR(20)
 );
 
+-- Crear la tabla Escuela
+CREATE TABLE Escuela (
+    id_escuela INT PRIMARY KEY,
+    nombre VARCHAR(255) NOT NULL,
+    direccion VARCHAR(255),
+    telefono VARCHAR(15)
+);
+
+-- Crear la tabla Candidato
+CREATE TABLE Candidato (
+    id_candidato INT PRIMARY KEY,
+    id_escuela INT,
+    nombre VARCHAR(255) NOT NULL,
+    direccion VARCHAR(255),
+    edad INT,
+    discapacidad VARCHAR(255),
+    habilidades TEXT,
+    telefono VARCHAR(15),
+    sexo VARCHAR(10),
+    correo VARCHAR(255),
+    FOREIGN KEY (id_escuela) REFERENCES Escuela(id_escuela)
+);
+
 -- Crear la tabla Vacantes
 CREATE TABLE Vacantes (
     id_vacante INT PRIMARY KEY,
@@ -41,27 +64,4 @@ CREATE TABLE Test (
     resultados TEXT,
     FOREIGN KEY (id_solicitud) REFERENCES Solicitud(id_solicitud),
     FOREIGN KEY (id_candidato) REFERENCES Candidato(id_candidato)
-);
-
--- Crear la tabla Candidato
-CREATE TABLE Candidato (
-    id_candidato INT PRIMARY KEY,
-    id_escuela INT,
-    nombre VARCHAR(255) NOT NULL,
-    direccion VARCHAR(255),
-    edad INT,
-    discapacidad VARCHAR(255),
-    habilidades TEXT,
-    telefono VARCHAR(15),
-    sexo VARCHAR(10),
-    correo VARCHAR(255),
-    FOREIGN KEY (id_escuela) REFERENCES Escuela(id_escuela)
-);
-
--- Crear la tabla Escuela
-CREATE TABLE Escuela (
-    id_escuela INT PRIMARY KEY,
-    nombre VARCHAR(255) NOT NULL,
-    direccion VARCHAR(255),
-    telefono VARCHAR(15)
 );
