@@ -13,7 +13,7 @@
         }
 
         header {
-            background-color: #9b77da;
+            background-color: #35355E;
             color: white;
             padding: 1em;
             text-align: center;
@@ -27,7 +27,7 @@
         }
 
         footer {
-            background-color: #9b77da;
+            background-color: #35355E;
             color: white;
             text-align: center;
             padding: 1em;

@@ -13,7 +13,7 @@
         }
 
         header {
-            background-color: #9b77da;
+            background-color: #6fa5b1   ;
             color: white;
             padding: 1em;
             text-align: center;
@@ -77,7 +77,7 @@
         }
 
         button {
-            background-color: #6fa5b1;
+            background-color: #4e6b9f;
             color: white;
             padding: 10px;
             border: none;
@@ -88,7 +88,7 @@
         }
 
         button:hover {
-            background-color: #4e6b9f;
+            background-color: #9b77da;
         }
     </style>
 </head>
