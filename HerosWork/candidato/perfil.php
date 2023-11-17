@@ -95,6 +95,9 @@
                 echo "<p><strong>Correo:</strong> " . $filaCandidato["correo"] . "</p>";
 
                 // Consulta para obtener el nombre de la escuela
+                if($filaCandidato["id_escuela"] == null){
+                    echo "<h4>No tiene una escuela asignada</h4>";
+                }else{
                 $idEscuela = $filaCandidato["id_escuela"];
                 $consultaEscuela = "SELECT nombre, direccion, telefono FROM Escuela WHERE id_escuela = $idEscuela";
                 $resultadoEscuela = $conexion->query($consultaEscuela);
@@ -109,6 +112,8 @@
                 } else {
                     echo "<p><strong>Escuela:</strong> No disponible</p>";
                 }
+                }
+                
             }
         } else {
             echo "No se encontró información del candidato.";
