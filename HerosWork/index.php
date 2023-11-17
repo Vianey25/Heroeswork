@@ -16,8 +16,9 @@
     </div>
     <nav>
       <a href="iniciosesion.php" class="nav-link">Iniciar sesión</a>
-      <a href="" class="nav-link">Regristrarse</a>
+      
       <a href="#quienSomos" class="nav-link">Información</a>
+      <a href="#caracteristicas" class="nav-link">Contacto</a>
     </nav>
   </header>
   <section id="banner">
@@ -28,7 +29,7 @@
   </section>
   <section id="quienSomos">
     <div class="container">
-      <div class="img-container"></div>
+      <div class="img-container" ><img src="./img/logo.png" alt="" class="img"></div>
       <div class="texto">
         <h2>Quienes somos?</h2>
         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam doloribus quis aspernatur dolore
@@ -68,10 +69,10 @@
   <section id="caracteristicas">
     <div class="container">
       <ul>
-        <li>características</li>
-        <li>características</li>
-        <li>características</li>
-        <li>características</li>
+        <<li> heroeswork@gmail.com</li>
+        <li>7751580685</li>
+        <li>Facebook: heroeswork</li>
+    
       </ul>
     </div>
   </section>

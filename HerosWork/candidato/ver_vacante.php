@@ -95,10 +95,13 @@
                 echo "<p>No se proporcionó un ID de vacante válido.</p>";
                 echo "<button onclick='window.history.back()'>Volver</button>";
             }
-
+            
             // Cerrar la conexión
             $conexion->close();
         ?>
+        <form action="procesar_solicitud.php" method="post">
+            <button>Solicitar </button>
+        </form>
     </main>
 </body>
 </html>
