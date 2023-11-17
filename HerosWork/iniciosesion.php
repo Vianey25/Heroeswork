@@ -9,10 +9,14 @@ $dbname = "heroeswork";
 function authenticate($nombre, $contraseña, $conn) {
     // Debes mejorar estas consultas para evitar la inyección de SQL
     $candidatoSql = "SELECT * FROM candidato WHERE nombre = '$nombre' AND contraseña = '$contraseña'";
-    $empresaSql = "SELECT * FROM empresas WHERE nombre = '$nombre' AND contraseña = '$contraseña'";
+    $empresaSql = "SELECT * FROM empresa WHERE nombre = '$nombre' AND contraseña = '$contraseña'";
 
     $candidatoResult = $conn->query($candidatoSql);
     $empresaResult = $conn->query($empresaSql);
+
+    if (!$candidatoResult || !$empresaResult) {
+        die("Error en la consulta: " . $conn->error);
+    }
 
     if ($candidatoResult->num_rows == 1) {
         $row = $candidatoResult->fetch_assoc();
