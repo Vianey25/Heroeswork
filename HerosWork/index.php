@@ -15,9 +15,9 @@
 
     </div>
     <nav>
-      <a href="#banner" class="nav-link">Iniciar sesión</a>
+      <a href="" class="nav-link">Iniciar sesión</a>
+      <a href="" class="nav-link">Regristrarse</a>
       <a href="#quienSomos" class="nav-link">Información</a>
-      <a href="" class="nav-link">Contacto</a>
     </nav>
   </header>
   <section id="banner">
@@ -39,28 +39,28 @@
     </section>
   <section id="programas">
     <div class="container">
-      <h2>Nuestros programas </h2>
+      <h2>¿Qué ofrecemos? </h2>
       <div class="programas_cartas">
         <div class="carta">
-          <h3>Programa 1</h3>
+          <h3>Registrate como empresa inclusiva</h3>
           <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
             Molestias ut quasi dolorem autem reprehenderit, repellendus ipsam, dicta eaque nihil dolores earum 
             corporis hic esse, est similique ea soluta consectetur non?</p>
-          <button> Ver </button>  
+           
         </div>
         <div class="carta">
-          <h3>Programa 2</h3>
+          <h3>Consigue un trabajo</h3>
           <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
             Molestias ut quasi dolorem autem reprehenderit, repellendus ipsam, dicta eaque nihil dolores earum 
             corporis hic esse, est similique ea soluta consectetur non?</p>
-          <button> Ver </button>  
+           
         </div>
         <div class="carta">
-          <h3>Programa 3</h3>
+          <h3>Ambiente laboral más inclusivo y diverso</h3>
           <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
             Molestias ut quasi dolorem autem reprehenderit, repellendus ipsam, dicta eaque nihil dolores earum 
             corporis hic esse, est similique ea soluta consectetur non?</p>
-          <button> Ver </button>  
+            
         </div>
       </div>
   </div>

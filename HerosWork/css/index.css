@@ -2,9 +2,6 @@
     box-sizing: border-box ;
 }
 
-/*html{
-    scroll-behavior: smooth;
-} hace que cuando se presiona un boton del headar se vea más natural  */
 body{
     font-family: 'Courier New', Courier, monospace;
     margin: 0;
@@ -49,7 +46,7 @@ header{
     min-height: 70px;
     justify-content: space-between;
     align-items: center;
-    padding: 10px;
+    padding: 1px;
     
     
 }
@@ -81,7 +78,7 @@ nav a:hover {
     align-items: center;
     justify-content: center;
     text-align: center;
-    height: 90vh;
+    height: 110vh;
     
     background-image: linear-gradient(
         0deg,
