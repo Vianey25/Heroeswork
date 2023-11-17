@@ -1,6 +1,4 @@
--- CREATE DATABASE Heroeswork;
 
--- USE Heroeswork;
 
 -- Crear la tabla Empresa
 CREATE TABLE Empresa (
