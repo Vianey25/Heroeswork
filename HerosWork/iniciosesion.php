@@ -6,7 +6,7 @@
     <title>Heroeswork - Iniciar Sesión</title>
     <style>
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Ubuntu', sans-serif;
             background-color: #35355E;
             margin: 0;
             padding: 0;
@@ -25,6 +25,7 @@
 
         h2 {
             text-align: center;
+            font-family: 'Ubuntu', sans-serif;
         }
 
         label {
@@ -41,14 +42,18 @@
             border-radius: 4px;
         }
 
-        input[type="submit"] {
-            background-color: #6fa5b1;
+       
+        .button{
+            font-size: 1.5em;
+            font-weight: bold;
+            border-radius: 10px;
+            padding: 10px 20px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
             color: white;
-            cursor: pointer;
+            background-color: #183146;
         }
-
-        input[type="submit"]:hover {
-            background-color: #4e6b9f;
+        .button:hover{
+            background-color:#6FA5B1;
         }
     </style>
 </head>
@@ -63,7 +68,7 @@
         <label for="password">Contraseña:</label>
         <input type="password" id="password" name="password" required>
 
-        <input type="submit" value="Iniciar Sesión">
+        <input type="submit" class="button" value="Iniciar Sesión">
     </form>
 
 </body>

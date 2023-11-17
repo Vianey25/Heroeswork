@@ -69,7 +69,7 @@
   <section id="caracteristicas">
     <div class="container">
       <ul>
-        <<li> heroeswork@gmail.com</li>
+        <li> heroeswork@gmail.com</li>
         <li>7751580685</li>
         <li>Facebook: heroeswork</li>
     
